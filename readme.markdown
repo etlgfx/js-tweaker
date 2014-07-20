@@ -94,20 +94,23 @@ specify a substitution macro for the selected environment by putting `{ENV}`
 anywhere in a string.
 
 * Only load a single config file:
-
-      ["custom"]
+  ```
+["custom"]
+  ```
 
 * Only load a single environment specific config file:
-
-      ["{ENV}"]
+  ```
+["{ENV}"]
+  ```
 
 * Load a default file and then merge in an environment specific file:
-
-      ['default', '{ENV}']
+  ```
+['default', '{ENV}']
+  ```
 
 * Load a default file and then merge in a variety of different configs:
-
-      ['default', '{ENV}/database', '{ENV}/filesystem', '...']
-
+  ```
+['default', '{ENV}/database', '{ENV}/filesystem', '...']
+  ```
   This could let you organize your configuration files very nicely by keeping
   separate categories of options apart.
