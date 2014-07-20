@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/etlgfx/js-tweaker)](https://travis-ci.org/etlgfx/js-tweaker)
 # js-tweaker
 Simple configuration management, intended for use with node.js. Minimal
 dependencies.
