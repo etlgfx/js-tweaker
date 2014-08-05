@@ -9,13 +9,17 @@ environments easily.
 Initially created for [Viafoura](https://github.com/viafoura)
 
 ## Installation
-Until I publish this on npm, you'll have to install this way:
+Install using NPM:
+
+`npm install js-tweaker`
+
+Recommend adding to your `package.json`
 
 `package.json`
 
     {
         "dependencies": {
-            "js-tweaker": "git://github.com/etlgfx/js-tweaker.git"
+            "js-tweaker": "*"
         }
     }
 
