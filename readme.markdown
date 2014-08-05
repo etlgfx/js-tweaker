@@ -6,6 +6,8 @@ dependencies.
 This library lets you define a set of configuration files for different
 environments easily.
 
+Initially created for [Viafoura](https://github.com/viafoura)
+
 ## Installation
 Until I publish this on npm, you'll have to install this way:
 
