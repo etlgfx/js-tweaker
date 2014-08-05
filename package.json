@@ -1,24 +1,29 @@
 {
-	"name": "js-tweaker",
-	"description": "easy to manage application configuration",
-	"version": "0.0.1",
-	"author": "Eric Liang <etlgfx@gmail.com>",
-	"keywords": [ "config", "configuration", "properties", "settings" ],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/etlgfx/js-tweaker.git"
-	},
-	"dependencies": {
-		"lodash": "2.4.x"
-	},
-	"devDependencies": {
-		"mocha": "1.20.x"
-	},
-	"license": "MIT",
-	"engines": {
-		"node": ">= 0.10.0"
-	},
-	"scripts": {
-		"test": "mocha -R spec --recursive test"
-	}
+  "name": "js-tweaker",
+  "description": "easy to manage application configuration",
+  "version": "0.0.2",
+  "author": "Eric Liang <etlgfx@gmail.com>",
+  "keywords": [
+    "config",
+    "configuration",
+    "properties",
+    "settings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/etlgfx/js-tweaker.git"
+  },
+  "dependencies": {
+    "lodash": "2.4.x"
+  },
+  "devDependencies": {
+    "mocha": "1.20.x"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec --recursive test"
+  }
 }
