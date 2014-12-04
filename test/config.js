@@ -2,8 +2,19 @@ var config = require('../lib/config'),
 	assert = require('assert');
 
 describe('config', function () {
+    var defaults;
+
+    before(function () {
+        defaults = config.options();
+    });
+
+    beforeEach(function () {
+        config.options(defaults);
+    });
+
 	it('uses env parameter', function () {
-		assert.equal(config({env: 'dev'})().env, 'dev');
+		assert.equal(config.options({env: 'dev'}).env, 'dev');
+        assert.equal(config().env, 'dev');
 	});
 
 	it('defaults to `development`', function () {
