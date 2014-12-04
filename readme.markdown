@@ -48,9 +48,9 @@ module.exports = {
 `live.js`
 
 ```javascript
-    module.exports = {
-        key: "live"
-    };
+module.exports = {
+    key: "live"
+};
 ```
 
 To read the configuration files into your application:
