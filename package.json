@@ -1,7 +1,7 @@
 {
   "name": "js-tweaker",
   "description": "easy to manage application configuration",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "author": "Eric Liang <etlgfx@gmail.com>",
   "keywords": [
     "config",
