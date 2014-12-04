@@ -5,32 +5,55 @@ describe('config', function () {
     var defaults;
 
     before(function () {
-        defaults = config.options();
+        defaults = config.options({
+            configDir: 'test/conf'
+        });
     });
 
-    beforeEach(function () {
-        config.options(defaults);
+    describe('#options', function () {
+        beforeEach(function () {
+            config.options(defaults);
+        });
+
+        it('defaults to `development`', function () {
+            //cannot be set to undefined, must be a String!!
+            assert.equal(config().env, 'development');
+            assert.equal(config.options().env, 'development');
+        });
+
+        it('uses env parameter', function () {
+            assert.equal(config.options({env: 'dev'}).env, 'dev');
+            assert.equal(config().env, 'dev');
+        });
+
+        it('changes directory and throws not found error', function () {
+            assert.throws(function () {
+                config.options({configDir: 'not found'});
+            }, function (err) {
+                return err instanceof Error && err.code === 'ENOENT';
+            });
+        });
+
+        it('changes directory', function () {
+            //we're already changing the config dir in beforeEach
+            assert.equal(/test\/conf/.test(config.options().configDir), true);
+        });
     });
 
-	it('uses env parameter', function () {
-		assert.equal(config.options({env: 'dev'}).env, 'dev');
-        assert.equal(config().env, 'dev');
-	});
+    describe('#config', function () {
+        beforeEach(function () {
+            config.options(defaults);
+        });
 
-	it('defaults to `development`', function () {
-		var old = process.env.NODE_ENV;
+        it('reads default config', function () {
+            assert.equal(config().key, 'value-default');
+        });
 
-		//cannot be set to undefined, must be a String!!
-		process.env.NODE_ENV = '';
-		assert.equal(config()().env, 'development');
-		process.env.NODE_ENV = old;
-	});
-
-	it('uses process.env.NODE_ENV', function () {
-		var old = process.env.NODE_ENV;
-
-		process.env.NODE_ENV = 'custom';
-		assert.equal(config()().env, 'custom');
-		process.env.NODE_ENV = old;
-	});
+        it('merges configs', function () {
+            config.options({ env: 'custom' });
+            assert.equal(config().key, 'value-custom');
+            config.options({ fileList: ['{ENV}', 'default'] });
+            assert.equal(config().key, 'value-default');
+        });
+    });
 });
